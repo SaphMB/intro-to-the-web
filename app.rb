@@ -2,7 +2,8 @@ require 'sinatra'
 set :session_secret, 'super secret'
 
 get '/' do
-  "Hello world!"
+  @name = ["Amigo", "Oscar", "Viking"].sample
+  erb(:index)
 end
 
 get '/secret' do
@@ -13,8 +14,12 @@ get '/also-secret' do
   "Hush"
 end
 
-get '/cat' do
-  #<a href="/">MDN<img src="http://f.cl.ly/items/0k0v3e2X3l2f3i1n1Y19/Screen%20Shot%202013-09-10%20at%2011.32.00.png" alt="cat"></a>
+get '/named-cat' do
+  @name = params[:name]
+  erb(:namedcat)
+end
+
+get '/random-cat' do
   "<div style='border: 3px dashed red'>
     <img src='http://f.cl.ly/items/0k0v3e2X3l2f3i1n1Y19/Screen%20Shot%202013-09-10%20at%2011.32.00.png'>
   </div>"
