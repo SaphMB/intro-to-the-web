@@ -1,1 +1,1 @@
-# sinatra-app
+# intro-to-the-web
