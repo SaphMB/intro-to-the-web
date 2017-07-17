@@ -15,8 +15,9 @@ get '/also-secret' do
 end
 
 get '/named-cat' do
+  p params
   @name = params[:name]
-  erb(:namedcat)
+  erb(:'named-cat')
 end
 
 get '/random-cat' do
